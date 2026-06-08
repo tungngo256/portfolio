@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light — Apple gray */
+  --bg: 245 245 247; /* #f5f5f7 */
+  --fg: 29 29 31; /* #1d1d1f */
+  --muted: 110 110 115; /* #6e6e73 */
+  --accent: 0 113 227; /* #0071e3 */
+  --card: 255 255 255;
+  --line: 0 0 0; /* used with low alpha */
+}
+
+.dark {
+  /* Dark — Apple black */
+  --bg: 0 0 0; /* #000000 */
+  --fg: 245 245 247; /* #f5f5f7 */
+  --muted: 161 161 166; /* #a1a1a6 */
+  --accent: 41 151 255; /* #2997ff */
+  --card: 22 22 24;
+  --line: 255 255 255; /* used with low alpha */
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Offset anchors below the fixed header */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-bg text-fg antialiased;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+/* Scroll-reveal: starts hidden, IntersectionObserver adds .is-visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-gradient-drift {
+    animation: none !important;
+  }
+}
