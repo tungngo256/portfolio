@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import CopyEmail from "@/components/CopyEmail";
@@ -100,14 +101,14 @@ const PROJECTS: {
     blurb: "Sports scoring platform · ~2,000 users",
     tags: ["Next.js", "TypeScript", "SSR", "SEO"],
     metric: "Lighthouse SEO: 92",
-    image: "/spon-score.jpg",
+    image: "/spon-score.webp",
   },
   {
     name: "Spon Live",
     blurb: "Live sports schedule platform with multi-league filtering",
     tags: ["Next.js", "ISR", "Zustand", "React Query"],
     metric: "SSR/ISR for indexable pages",
-    image: "/spon-live.png",
+    image: "/spon-live.webp",
   },
   {
     name: "Generative NFT Art",
@@ -116,7 +117,7 @@ const PROJECTS: {
     tags: ["p5.js", "JavaScript", "Canvas", "Generative"],
     metric: "Live sketch · p5.js editor",
     href: "https://editor.p5js.org/tungngo256/sketches/V-qxCc1y_",
-    image: "/nft-demo.png",
+    image: "/nft-demo.webp",
   },
   {
     name: "Internship Recruitment Platform",
@@ -124,14 +125,14 @@ const PROJECTS: {
       "Built an internship recruitment platform at R2S — accessible, responsive UI across all devices",
     tags: ["React.js", "Redux", "Ant Design", "SCSS"],
     metric: "Responsive & accessible across all devices",
-    image: "/r2s.png",
+    image: "/r2s.webp",
   },
   {
     name: "BoostPTE",
     blurb: "English learning platform (live product)",
     tags: ["React", "Redux", "Ant Design"],
     metric: "7 features shipped on a live product",
-    image: "/boostpte.svg",
+    image: "/boostpte.webp",
   },
   {
     name: "Company Website Re-build",
@@ -139,7 +140,7 @@ const PROJECTS: {
       "Rebuilt the company website at Horus — researched libraries and developed 3 key features",
     tags: ["React.js", "MUI", "Redux", "SCSS"],
     metric: "3 key features delivered",
-    image: "/horus-vn.png",
+    image: "/horus-vn.webp",
   },
 ];
 
@@ -221,7 +222,7 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
                 href="#projects"
-                className="rounded-full bg-accent px-7 py-3 text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.03]"
+                className="rounded-full bg-accent-solid px-7 py-3 text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.03]"
               >
                 View Work
               </a>
@@ -393,13 +394,13 @@ export default function Home() {
               const inner = (
                 <>
                   {p.image && (
-                    <div className="mb-5 -mx-7 -mt-7 overflow-hidden rounded-t-2xl">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                    <div className="relative mb-5 -mx-7 -mt-7 aspect-[16/9] overflow-hidden rounded-t-2xl">
+                      <Image
                         src={p.image}
                         alt={`${p.name} preview`}
-                        loading="lazy"
-                        className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
                   )}

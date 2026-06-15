@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 
 const LINKS = [
@@ -45,16 +46,20 @@ export default function Nav() {
           aria-label="Home"
         >
           {/* Light/dark logos — swapped via the `dark` class. */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo-light.png"
-            alt="corbin"
+          <Image
+            src="/logo-light.webp"
+            alt="Ngo Huu Thanh Tung logo"
+            width={120}
+            height={28}
+            priority
             className="h-7 w-auto dark:hidden"
           />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo-dark.png"
-            alt="corbin"
+          <Image
+            src="/logo-dark.webp"
+            alt="Ngo Huu Thanh Tung logo"
+            width={120}
+            height={28}
+            priority
             className="hidden h-7 w-auto dark:block"
           />
         </a>
